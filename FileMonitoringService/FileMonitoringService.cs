@@ -58,7 +58,8 @@ namespace FileMonitoring
             try
             {
                 string empNumberEnable = Convert.ToString(ConfigurationManager.AppSettings["empNumberEnable"]);//状态为启用的员工集合
-                string empFolderPath = Convert.ToString(ConfigurationManager.AppSettings["employeePath"]);  //员工目录
+                string empFolderPath = Convert.ToString(ConfigurationManager.AppSettings["employeePath"]);  //员工目录                
+                string modifyRecordFolder = ConfigurationManager.AppSettings["modifyRecordFolderName"].ToString();//存放修改记录的文件夹名
                 DirectoryInfo empRootFolder = new DirectoryInfo(empFolderPath);
                 ProjectBLL pBll = new ProjectBLL();
                 DataTable dtProject = pBll.GetProject();
@@ -79,7 +80,7 @@ namespace FileMonitoring
                             foreach (DirectoryInfo taskFolder in empFolder.GetDirectories())
                             {
                                 //LogHelper.WriteLine("循环每个员工下的任务taskFolder.Name：" + taskFolder.Name);
-                                //循环数据库中已创建的任务列表
+                                //循环数据库中已创建的任务列表，这个循环用来匹配并设置完成人
                                 for (int i = 0; i < dtProject.Rows.Count; i++)
                                 {
                                     string projectID = dtProject.Rows[i]["ID"].ToString();
@@ -106,6 +107,15 @@ namespace FileMonitoring
                                                 }
                                             }
                                         }
+                                        else
+                                        {
+                                            //设置完成人
+                                            bool updateFlag = pBll.UpdateFinishedPerson(empNo, projectID);
+                                            if (updateFlag)
+                                            {
+                                                LogHelper.WriteLine(string.Format("设置了任务[{0}]的完成人为[{1}]", taskNO, empNo));
+                                            }
+                                        }
                                         //如果文件夹名称中包含“完成”，则说明任务已完成
                                         if (taskFolder.Name.Contains("完成"))
                                         {
@@ -114,54 +124,99 @@ namespace FileMonitoring
                                         }
                                     }
                                 }
-                                //遍历“修改记录”文件夹
+                                //遍历“修改记录”文件夹，这个循环用来检测修改记录的完成状态
                                 foreach (DirectoryInfo taskFolderChild in taskFolder.GetDirectories())
                                 {
-                                    //LogHelper.WriteLine("遍历“修改记录”目录");
-                                    //存放修改记录的文件夹名
-                                    string modifyRecordFolder = ConfigurationManager.AppSettings["modifyRecordFolderName"].ToString();
-                                    //如果遍历到符合条件的文件夹
-                                    if (taskFolderChild.Name.Trim() == modifyRecordFolder)
+                                    LogHelper.WriteLine("因为有一些命名不规范的目录名，故要进行判断。taskFolder.Name：" + taskFolder.Name);
+                                    LogHelper.WriteLine("因为有一些 taskFolderChild.Name：" + taskFolderChild.Name);
+                                    //因为有一些命名不规范的目录名，故要进行判断
+                                    if (taskFolder.Name.Length >= 22)
                                     {
-                                        //LogHelper.WriteLine("如果遍历到符合条件的目录");
-                                        foreach (DirectoryInfo modifyFolders in taskFolderChild.GetDirectories())
+                                        //如果遍历到是修改记录文件夹
+                                        LogHelper.WriteLine("如果遍历到是修改记录文件夹.taskFolderChild.Name:" + taskFolderChild.Name);
+                                        if (taskFolderChild.Name.Trim() == modifyRecordFolder)
                                         {
-                                            try
+                                            LogHelper.WriteLine("taskFolderChild.Name.Trim() == modifyRecordFolder");
+                                            foreach (DirectoryInfo modifyFolders in taskFolderChild.GetDirectories())
                                             {
-                                                //针对一些命名不规范的目录名
-                                                if (taskFolder.Name.Length >= 26)
+                                                try
                                                 {
-                                                    //因为任务文件夹名称会发生变动，因此取前26个不会变动的字符
-                                                    string taskNoOriginal = taskFolder.Name.Substring(0, 26);
+                                                    //获取任务目录的原始文件名（因为任务文件夹名称会发生变动，因此取前26个不会变动的字符）
+                                                    LogHelper.WriteLine("taskFolder.Name.Substring(0, 26);");
+                                                    string taskNoOriginal = taskFolder.Name.Substring(0, 22);
                                                     //修改记录文件夹（原始名）
                                                     string modfItem = modifyFolders.Name.Trim();
                                                     //LogHelper.WriteLine("modfItem：" + modfItem);
-                                                    //修改记录文件夹（完成后的，会加上“完成”二字）
-                                                    string modfItemOriginal = modfItem.Replace("完成", string.Empty);
-                                                    //判断数据库中是否存在该修改记录
-                                                    bool isExistMofify = pBll.IsExistProjectModify(taskNoOriginal, modfItemOriginal);
-                                                    //不存在则添加
-                                                    //LogHelper.WriteLine("isExistMofify：" + isExistMofify);
-                                                    if (!isExistMofify)
+                                                    #region Remarks 2017-03-11 14:02:54
+                                                    ////修改记录文件夹（完成后的，会加上“完成”二字）
+                                                    //string modfItemOriginal = modfItem.Replace("完成", string.Empty);
+                                                    ////判断数据库中是否存在该修改记录
+                                                    //bool isExistModify = pBll.IsExistProjectModify(taskNoOriginal, modfItemOriginal);
+                                                    ////不存在则添加
+                                                    ////LogHelper.WriteLine("isExistMofify：" + isExistMofify);
+                                                    //if (!isExistModify)
+                                                    //{
+                                                    //    //首先判断这个目录对应的任务在数据库中存不存在（否则有一些不符合命名规范或者未通过系统录入的任务，就会在ProjectModify表中生成冗余的数据）
+                                                    //    bool IsExistProject = pBll.IsExistProjectByTaskNo(taskNoOriginal);
+                                                    //    //存在再添加
+                                                    //    if (IsExistProject)
+                                                    //    {
+                                                    //        bool flagAddProjectModify = pBll.AddProjectModify(taskNoOriginal, modfItemOriginal);
+                                                    //    }
+                                                    //}
+                                                    ////存在的话判断是否完成，若已完成则将完成状态置为1（即已完成）
+                                                    //else if (modfItem.Contains("完成"))
+                                                    //{
+                                                    //    bool flagModifyFinished = pBll.UpdateProjectModifyFinished(taskNoOriginal, modfItemOriginal);
+                                                    //}
+                                                    #endregion
+
+                                                    /*2017-03-11修改，因需求变更，原稿和完成稿均需记录在数据库中*/
+                                                    string projectModifyID = string.Empty;
+                                                    string prjMdfFolder = string.Empty;
+                                                    int reviewStatus = 0;
+                                                    bool isExistModify1 = pBll.IsExistModifyTask(taskNoOriginal, out projectModifyID, out prjMdfFolder, out reviewStatus);
+                                                    LogHelper.WriteLine("isExistModify1:" + isExistModify1);
+                                                    if (isExistModify1 && reviewStatus == 0)
                                                     {
-                                                        //首先判断这个目录对应的任务在数据库中存不存在（否则有一些不符合命名规范或者未通过系统录入的任务，就会在ProjectModify表中生成多余无效的数据）
-                                                        bool IsExistProject = pBll.IsExistProjectByTaskNo(taskNoOriginal);
-                                                        //存在再添加
-                                                        if (IsExistProject)
+                                                        bool isSuccessSet = pBll.SetReviewPass(projectModifyID);
+                                                        if (isSuccessSet)
+                                                            LogHelper.WriteLine(string.Format("成功设置了任务ID为{0}的修改任务审核状态", projectModifyID));
+                                                        else
+                                                            LogHelper.WriteLine(string.Format("设置任务ID为{0}的修改任务审核状态失败", projectModifyID));
+                                                    }
+                                                    //如果目录名包含“完成”二字并且是以“修改n”打头的，则说明该修改任务已完成，将其录入数据库
+                                                    LogHelper.WriteLine("modifyFolders.Name:" + modifyFolders.Name + "    modfItem:" + modfItem + "   prjMdfFolder:" + prjMdfFolder);
+                                                    if (modifyFolders.Name.Contains("完成") && /*modifyFolders.Name*/ modfItem.StartsWith(prjMdfFolder))
+                                                    {
+                                                        LogHelper.WriteLine("modifyFolders.Name.Contains(\"完成\") && modifyFolders.Name == modfItem.Replace(\"完成\", string.Empty)");
+                                                        DataRow[] dr = dtProject.Select(string.Format(" taskNO = '{0}'", taskNoOriginal));
+                                                        LogHelper.WriteLine("DataRow[] dr的长度：" + dr.Length);
+                                                        string projectID = string.Empty;
+                                                        if (dr.Length > 0)
                                                         {
-                                                            bool flagAddProjectModify = pBll.AddProjectModify(taskNoOriginal, modfItemOriginal);
+                                                            projectID = dr[0]["ID"].ToString();
+                                                        }
+                                                        bool isExistFinalModifyScript = pBll.IsExistFinalModifyScript(projectID, modifyFolders.Name);
+                                                        LogHelper.WriteLine("isExistFinalModifyScript:" + isExistFinalModifyScript + "   modifyFolders.Name:" + modifyFolders.Name);
+                                                        if (!isExistFinalModifyScript)
+                                                        {
+                                                            bool addFlag = pBll.AddProjectModify(projectID, modifyFolders.Name, 1, 1, DateTime.Now);
+                                                            if (addFlag)
+                                                            {
+                                                                LogHelper.WriteLine(string.Format("[Success]projectID为[{0}]任务的修改完成稿[{1}]创建成功", projectID, modifyFolders.Name));
+                                                            }
+                                                            else
+                                                            {
+                                                                LogHelper.WriteLine(string.Format("[Error]projectID为[{0}]任务的修改完成稿[{1}]创建失败", projectID, modifyFolders.Name));
+                                                            }
                                                         }
                                                     }
-                                                    //存在的话判断是否完成，若已完成则将完成状态置为1（即已完成）
-                                                    else if (modfItem.Contains("完成"))
-                                                    {
-                                                        bool flagModifyFinished = pBll.UpdateProjectModifyFinished(taskNoOriginal, modfItemOriginal);
-                                                    }
                                                 }
-                                            }
-                                            catch (Exception ex)
-                                            {
-                                                LogHelper.WriteLine(ex.Message + "\r\n" + ex.StackTrace);
+                                                catch (Exception ex)
+                                                {
+                                                    LogHelper.WriteLine(ex.Message + "\r\n" + ex.StackTrace);
+                                                }
                                             }
                                         }
                                     }

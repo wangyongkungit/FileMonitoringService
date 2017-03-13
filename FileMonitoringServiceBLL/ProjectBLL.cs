@@ -84,6 +84,31 @@ namespace FileMonitoringServiceBLL
         }
 
         /// <summary>
+        /// 判断完成稿是否存在
+        /// </summary>
+        /// <param name="projectID"></param>
+        /// <param name="modifyFolderName"></param>
+        /// <returns></returns>
+        public bool IsExistFinalModifyScript(string projectID, string modifyFolderName)
+        {
+            return pDal.IsExistFinalModifyScript(projectID, modifyFolderName);
+        }
+
+        /// <summary>
+        /// 添加一条修改任务记录
+        /// </summary>
+        /// <param name="projectID">对应的普通任务的ID</param>
+        /// <param name="folderName">目录名</param>
+        /// <param name="isFinished">是否完成</param>
+        /// <param name="reviewStatus">是否审核通过</param>
+        /// <param name="dtCreate">创建时间</param>
+        /// <returns></returns>
+        public bool AddProjectModify(string projectID, string folderName, int isFinished, int reviewStatus, DateTime dtCreate)
+        {
+            return pDal.AddProjectModify(projectID, folderName, isFinished, reviewStatus, dtCreate);
+        }
+
+        /// <summary>
         /// 修改售后的完成状态
         /// </summary>
         /// <param name="taskNoOriginal"></param>
@@ -92,6 +117,29 @@ namespace FileMonitoringServiceBLL
         public bool UpdateProjectModifyFinished(string taskNoOriginal, string modifyFolderName)
         {
             return pDal.UpdateProjectModifyFinished(taskNoOriginal, modifyFolderName);
+        }
+
+        /// <summary>
+        /// 判断修改任务是否存在
+        /// </summary>
+        /// <param name="taskNo"></param>
+        /// <param name="projectModifyID"></param>
+        /// <param name="prjMdfFolder"></param>
+        /// <param name="reviewStatus"></param>
+        /// <returns></returns>
+        public bool IsExistModifyTask(string taskNo, out string projectModifyID, out string prjMdfFolder, out int reviewStatus)
+        {
+            return pDal.IsExistModifyTask(taskNo, out projectModifyID, out prjMdfFolder, out reviewStatus);
+        }
+
+        /// <summary>
+        /// 设置审核状态为通过
+        /// </summary>
+        /// <param name="projectModifyID"></param>
+        /// <returns></returns>
+        public bool SetReviewPass(string projectModifyID)
+        {
+            return pDal.SetReviewPass(projectModifyID);
         }
     }
 }
