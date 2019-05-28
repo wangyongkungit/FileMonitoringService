@@ -32,6 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.Install" />
@@ -43,6 +47,10 @@
     <Reference Include="System.Data" />
     <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xml" />
+    <Reference Include="TopSdk, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\TopSdk.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FileMonitoringService.cs">
@@ -74,9 +82,24 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Bat\Install.bat" />
+    <Content Include="HTMLPage1.html" />
     <Content Include="Lib\MySql.Data.dll" />
+    <Content Include="Lib\TopSdk.dll" />
+    <Content Include="XMLFile1.xml" />
+    <Content Include="XMLFile2.xml" />
+    <Content Include="XMLFile3.xml">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FileMonitoringService.CommonHelper\FileMonitoringService.CommonHelper.csproj">
+      <Project>{fbb280fd-1a98-41c2-a1d4-905c8fdf789c}</Project>
+      <Name>FileMonitoringService.CommonHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FileMonitoringService.Model\FileMonitoringService.Model.csproj">
+      <Project>{9e199b55-24e0-46a0-b9c4-cf8b7edc2c44}</Project>
+      <Name>FileMonitoringService.Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FileMonitoringServiceBLL\FileMonitoringServiceBLL.csproj">
       <Project>{6526163e-86db-41fb-a5d8-45d2033ce273}</Project>
       <Name>FileMonitoringServiceBLL</Name>

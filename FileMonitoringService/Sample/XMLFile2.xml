@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<dingtalk_smartwork_attends_listschedule_response>
+  <result>
+    <ding_open_errcode>0</ding_open_errcode>
+    <result>
+      <has_more>false</has_more>
+      <schedules>
+        <at_schedule_for_top_vo>
+          <check_type>OnDuty</check_type>
+          <class_id>115655317</class_id>
+          <class_setting_id>24685463</class_setting_id>
+          <group_id>49160296</group_id>
+          <plan_check_time>2018-04-09 08:30:00</plan_check_time>
+          <plan_id>16288246434</plan_id>
+          <userid>083837256338737962</userid>
+        </at_schedule_for_top_vo>
+        <at_schedule_for_top_vo>
+          <check_type>OffDuty</check_type>
+          <class_id>115655317</class_id>
+          <class_setting_id>24685463</class_setting_id>
+          <group_id>49160296</group_id>
+          <plan_check_time>2018-04-09 18:00:00</plan_check_time>
+          <plan_id>16288246435</plan_id>
+          <userid>083837256338737962</userid>
+        </at_schedule_for_top_vo>
+        <at_schedule_for_top_vo>
+          <check_type>OnDuty</check_type>
+          <class_id>115655317</class_id>
+          <class_setting_id>24685463</class_setting_id>
+          <group_id>128355324</group_id>
+          <plan_check_time>2018-04-09 08:30:00</plan_check_time>
+          <plan_id>16288246420</plan_id>
+          <userid>086841065229224690</userid>
+        </at_schedule_for_top_vo>
+        <at_schedule_for_top_vo>
+          <check_type>OffDuty</check_type>
+          <class_id>115655317</class_id>
+          <class_setting_id>24685463</class_setting_id>
+          <group_id>128355324</group_id>
+          <plan_check_time>2018-04-09 18:00:00</plan_check_time>
+          <plan_id>16288246421</plan_id>
+          <userid>086841065229224690</userid>
+        </at_schedule_for_top_vo>
+        <at_schedule_for_top_vo>
+          <check_type>OnDuty</check_type>
+          <class_id>115655317</class_id>
+          <class_setting_id>24685463</class_setting_id>
+          <group_id>128355324</group_id>
+          <plan_check_time>2018-04-09 08:30:00</plan_check_time>
+          <plan_id>16288246424</plan_id>
+          <userid>B0001</userid>
+        </at_schedule_for_top_vo>
+        <at_schedule_for_top_vo>
+          <check_type>OffDuty</check_type>
+          <class_id>115655317</class_id>
+          <class_setting_id>24685463</class_setting_id>
+          <group_id>128355324</group_id>
+          <plan_check_time>2018-04-09 18:00:00</plan_check_time>
+          <plan_id>16288246425</plan_id>
+          <userid>B0001</userid>
+        </at_schedule_for_top_vo>
+        <at_schedule_for_top_vo>
+          <check_type>OnDuty</check_type>
+          <class_id>115655317</class_id>
+          <class_setting_id>24685463</class_setting_id>
+          <group_id>128355324</group_id>
+          <plan_check_time>2018-04-09 08:30:00</plan_check_time>
+          <plan_id>16288246426</plan_id>
+          <userid>C005</userid>
+        </at_schedule_for_top_vo>
+        <at_schedule_for_top_vo>
+          <check_type>OffDuty</check_type>
+          <class_id>115655317</class_id>
+          <class_setting_id>24685463</class_setting_id>
+          <group_id>128355324</group_id>
+          <plan_check_time>2018-04-09 18:00:00</plan_check_time>
+          <plan_id>16288246427</plan_id>
+          <userid>C005</userid>
+        </at_schedule_for_top_vo>
+        <at_schedule_for_top_vo>
+          <check_type>OnDuty</check_type>
+          <class_id>115655317</class_id>
+          <class_setting_id>24685463</class_setting_id>
+          <group_id>49160296</group_id>
+          <plan_check_time>2018-04-09 08:30:00</plan_check_time>
+          <plan_id>16288246438</plan_id>
+          <userid>C006</userid>
+        </at_schedule_for_top_vo>
+        <at_schedule_for_top_vo>
+          <check_type>OffDuty</check_type>
+          <class_id>115655317</class_id>
+          <class_setting_id>24685463</class_setting_id>
+          <group_id>49160296</group_id>
+          <plan_check_time>2018-04-09 18:00:00</plan_check_time>
+          <plan_id>16288246439</plan_id>
+          <userid>C006</userid>
+        </at_schedule_for_top_vo>
+        <at_schedule_for_top_vo>
+          <check_type>OnDuty</check_type>
+          <class_id>115655317</class_id>
+          <class_setting_id>24685463</class_setting_id>
+          <group_id>128355324</group_id>
+          <plan_check_time>2018-04-09 08:30:00</plan_check_time>
+          <plan_id>16288246422</plan_id>
+          <userid>C008</userid>
+        </at_schedule_for_top_vo>
+        <at_schedule_for_top_vo>
+          <check_type>OffDuty</check_type>
+          <class_id>115655317</class_id>
+          <class_setting_id>24685463</class_setting_id>
+          <group_id>128355324</group_id>
+          <plan_check_time>2018-04-09 18:00:00</plan_check_time>
+          <plan_id>16288246423</plan_id>
+          <userid>C008</userid>
+        </at_schedule_for_top_vo>
+        <at_schedule_for_top_vo>
+          <check_type>OnDuty</check_type>
+          <class_id>115655317</class_id>
+          <class_setting_id>24685463</class_setting_id>
+          <group_id>49160296</group_id>
+          <plan_check_time>2018-04-09 08:30:00</plan_check_time>
+          <plan_id>16288246430</plan_id>
+          <userid>c019</userid>
+        </at_schedule_for_top_vo>
+        <at_schedule_for_top_vo>
+          <check_type>OffDuty</check_type>
+          <class_id>115655317</class_id>
+          <class_setting_id>24685463</class_setting_id>
+          <group_id>49160296</group_id>
+          <plan_check_time>2018-04-09 18:00:00</plan_check_time>
+          <plan_id>16288246431</plan_id>
+          <userid>c019</userid>
+        </at_schedule_for_top_vo>
+        <at_schedule_for_top_vo>
+          <check_type>OnDuty</check_type>
+          <class_id>115655317</class_id>
+          <class_setting_id>24685463</class_setting_id>
+          <group_id>49160296</group_id>
+          <plan_check_time>2018-04-09 08:30:00</plan_check_time>
+          <plan_id>16288246436</plan_id>
+          <userid>c020</userid>
+        </at_schedule_for_top_vo>
+        <at_schedule_for_top_vo>
+          <check_type>OffDuty</check_type>
+          <class_id>115655317</class_id>
+          <class_setting_id>24685463</class_setting_id>
+          <group_id>49160296</group_id>
+          <plan_check_time>2018-04-09 18:00:00</plan_check_time>
+          <plan_id>16288246437</plan_id>
+          <userid>c020</userid>
+        </at_schedule_for_top_vo>
+        <at_schedule_for_top_vo>
+          <check_type>OnDuty</check_type>
+          <class_id>115655317</class_id>
+          <class_setting_id>24685463</class_setting_id>
+          <group_id>49160296</group_id>
+          <plan_check_time>2018-04-09 08:30:00</plan_check_time>
+          <plan_id>16288246432</plan_id>
+          <userid>C035</userid>
+        </at_schedule_for_top_vo>
+        <at_schedule_for_top_vo>
+          <check_type>OffDuty</check_type>
+          <class_id>115655317</class_id>
+          <class_setting_id>24685463</class_setting_id>
+          <group_id>49160296</group_id>
+          <plan_check_time>2018-04-09 18:00:00</plan_check_time>
+          <plan_id>16288246433</plan_id>
+          <userid>C035</userid>
+        </at_schedule_for_top_vo>
+        <at_schedule_for_top_vo>
+          <check_type>OnDuty</check_type>
+          <class_id>115655317</class_id>
+          <class_setting_id>24685463</class_setting_id>
+          <group_id>49160296</group_id>
+          <plan_check_time>2018-04-09 08:30:00</plan_check_time>
+          <plan_id>16288246440</plan_id>
+          <userid>C037</userid>
+        </at_schedule_for_top_vo>
+        <at_schedule_for_top_vo>
+          <check_type>OffDuty</check_type>
+          <class_id>115655317</class_id>
+          <class_setting_id>24685463</class_setting_id>
+          <group_id>49160296</group_id>
+          <plan_check_time>2018-04-09 18:00:00</plan_check_time>
+          <plan_id>16288246441</plan_id>
+          <userid>C037</userid>
+        </at_schedule_for_top_vo>
+        <at_schedule_for_top_vo>
+          <check_type>OnDuty</check_type>
+          <class_id>115655317</class_id>
+          <class_setting_id>24685463</class_setting_id>
+          <group_id>49160296</group_id>
+          <plan_check_time>2018-04-09 08:30:00</plan_check_time>
+          <plan_id>16288246442</plan_id>
+          <userid>c039</userid>
+        </at_schedule_for_top_vo>
+        <at_schedule_for_top_vo>
+          <check_type>OffDuty</check_type>
+          <class_id>115655317</class_id>
+          <class_setting_id>24685463</class_setting_id>
+          <group_id>49160296</group_id>
+          <plan_check_time>2018-04-09 18:00:00</plan_check_time>
+          <plan_id>16288246443</plan_id>
+          <userid>c039</userid>
+        </at_schedule_for_top_vo>
+        <at_schedule_for_top_vo>
+          <check_type>OnDuty</check_type>
+          <class_id>115655317</class_id>
+          <class_setting_id>24685463</class_setting_id>
+          <group_id>49160296</group_id>
+          <plan_check_time>2018-04-09 08:30:00</plan_check_time>
+          <plan_id>16288246444</plan_id>
+          <userid>C040</userid>
+        </at_schedule_for_top_vo>
+        <at_schedule_for_top_vo>
+          <check_type>OffDuty</check_type>
+          <class_id>115655317</class_id>
+          <class_setting_id>24685463</class_setting_id>
+          <group_id>49160296</group_id>
+          <plan_check_time>2018-04-09 18:00:00</plan_check_time>
+          <plan_id>16288246445</plan_id>
+          <userid>C040</userid>
+        </at_schedule_for_top_vo>
+        <at_schedule_for_top_vo>
+          <check_type>OnDuty</check_type>
+          <class_id>115655317</class_id>
+          <class_setting_id>24685463</class_setting_id>
+          <group_id>128355324</group_id>
+          <plan_check_time>2018-04-09 08:30:00</plan_check_time>
+          <plan_id>16288246428</plan_id>
+          <userid>C041</userid>
+        </at_schedule_for_top_vo>
+        <at_schedule_for_top_vo>
+          <check_type>OffDuty</check_type>
+          <class_id>115655317</class_id>
+          <class_setting_id>24685463</class_setting_id>
+          <group_id>128355324</group_id>
+          <plan_check_time>2018-04-09 18:00:00</plan_check_time>
+          <plan_id>16288246429</plan_id>
+          <userid>C041</userid>
+        </at_schedule_for_top_vo>
+      </schedules>
+    </result>
+    <success>true</success>
+  </result>
+  <request_id>44nt7s9jsw5v</request_id>
+</dingtalk_smartwork_attends_listschedule_response>
+<!--top011250241096.eu13-->

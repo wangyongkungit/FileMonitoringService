@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<dingtalk_smartwork_bpms_processinstance_list_response>
+  <result>
+    <ding_open_errcode>0</ding_open_errcode>
+    <result>
+      <list>
+        <process_instance_top_vo>
+          <approver_userid_list>
+            <string>083837256338737962</string>
+            <string>A002</string>
+          </approver_userid_list>
+          <business_id>201803222100000252321</business_id>
+          <create_time>2018-03-22 21:00:25</create_time>
+          <finish_time>2018-03-22 21:00:54</finish_time>
+          <form_component_values>
+            <form_component_value_vo>
+              <name>[&quot;开始时间&quot;,&quot;结束时间&quot;]</name>
+              <value>[&quot;2018-03-24&quot;,&quot;2018-03-24&quot;,1,&quot;day&quot;,&quot;事假&quot;,&quot;请假类型&quot;]</value>
+            </form_component_value_vo>
+            <form_component_value_vo>
+              <name>请假事由</name>
+              <value>测试</value>
+            </form_component_value_vo>
+            <form_component_value_vo>
+              <name>图片</name>
+            </form_component_value_vo>
+          </form_component_values>
+          <originator_dept_id>37037510</originator_dept_id>
+          <originator_userid>083837256338737962</originator_userid>
+          <process_instance_id>99ace488-9adf-4071-a7cc-3157c6a5744f</process_instance_id>
+          <process_instance_result>agree</process_instance_result>
+          <status>COMPLETED</status>
+          <title>高亚京的请假（相城）</title>
+        </process_instance_top_vo>
+        <process_instance_top_vo>
+          <approver_userid_list>
+            <string>083837256338737962</string>
+            <string>A002</string>
+          </approver_userid_list>
+          <business_id>201803222042000250802</business_id>
+          <create_time>2018-03-22 20:42:25</create_time>
+          <finish_time>2018-03-22 20:43:02</finish_time>
+          <form_component_values>
+            <form_component_value_vo>
+              <name>[&quot;开始时间&quot;,&quot;结束时间&quot;]</name>
+              <value>[&quot;2018-03-23&quot;,&quot;2018-03-23&quot;,1,&quot;day&quot;,&quot;事假&quot;,&quot;请假类型&quot;]</value>
+            </form_component_value_vo>
+            <form_component_value_vo>
+              <name>请假事由</name>
+              <value>测试</value>
+            </form_component_value_vo>
+            <form_component_value_vo>
+              <name>图片</name>
+            </form_component_value_vo>
+          </form_component_values>
+          <originator_dept_id>37037510</originator_dept_id>
+          <originator_userid>083837256338737962</originator_userid>
+          <process_instance_id>64ba8e98-61ee-427d-8872-01d89ee20d52</process_instance_id>
+          <process_instance_result>agree</process_instance_result>
+          <status>COMPLETED</status>
+          <title>高亚京的请假（相城）</title>
+        </process_instance_top_vo>
+        <process_instance_top_vo>
+          <approver_userid_list>
+            <string>083837256338737962</string>
+            <string>A002</string>
+          </approver_userid_list>
+          <business_id>201801201757000555159</business_id>
+          <create_time>2018-01-20 17:57:55</create_time>
+          <finish_time>2018-01-22 14:26:26</finish_time>
+          <form_component_values>
+            <form_component_value_vo>
+              <name>[&quot;开始时间&quot;,&quot;结束时间&quot;]</name>
+            </form_component_value_vo>
+            <form_component_value_vo>
+              <name>请假事由</name>
+              <value>因事回家  请假4天</value>
+            </form_component_value_vo>
+            <form_component_value_vo>
+              <name>图片</name>
+            </form_component_value_vo>
+          </form_component_values>
+          <originator_dept_id>36961466</originator_dept_id>
+          <originator_userid>C038</originator_userid>
+          <process_instance_id>8d65c174-f701-4c38-81b6-6831a1fc28fc</process_instance_id>
+          <process_instance_result>agree</process_instance_result>
+          <status>COMPLETED</status>
+          <title>翟国越的请假（相城）</title>
+        </process_instance_top_vo>
+      </list>
+    </result>
+    <success>true</success>
+  </result>
+  <request_id>q3jl6x3a9qe8</request_id>
+</dingtalk_smartwork_bpms_processinstance_list_response>
+<!--top011185245128.center.et2-->
