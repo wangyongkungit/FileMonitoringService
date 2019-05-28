@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6526163E-86DB-41FB-A5D8-45D2033CE273}</ProjectGuid>
+    <ProjectGuid>{9E199B55-24E0-46A0-B9C4-CF8B7EDC2C44}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FileMonitoringServiceBLL</RootNamespace>
-    <AssemblyName>FileMonitoringServiceBLL</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>FileMonitoringService.Model</RootNamespace>
+    <AssemblyName>FileMonitoringService.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -39,32 +39,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EmployeeAccountBLL.cs" />
-    <Compile Include="EmployeeBLL.cs" />
-    <Compile Include="EmployeeProportionBLL.cs" />
-    <Compile Include="FileCategoryBLL.cs" />
-    <Compile Include="ProjectBLL.cs" />
-    <Compile Include="ProjectProportionBLL.cs" />
-    <Compile Include="ProjectSpecialtyBLL.cs" />
+    <Compile Include="AssignFail.cs" />
+    <Compile Include="Employee.cs" />
+    <Compile Include="EmployeeAccount.cs" />
+    <Compile Include="EmployeeProportion.cs" />
+    <Compile Include="FileCategory.cs" />
+    <Compile Include="ProjectProportion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RightDownBLL.cs" />
-    <Compile Include="SystemLogBLL.cs" />
-    <Compile Include="TaskAssignConfigBLL.cs" />
-    <Compile Include="TaskAssignConfigDetailsBLL.cs" />
-    <Compile Include="TaskAssignFailLogBLL.cs" />
-    <Compile Include="TaskRemindingBLL.cs" />
-    <Compile Include="TransactionDetailsBLL.cs" />
-    <Compile Include="WeightsConfigBLL.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\FileMonitoringService.Model\FileMonitoringService.Model.csproj">
-      <Project>{9e199b55-24e0-46a0-b9c4-cf8b7edc2c44}</Project>
-      <Name>FileMonitoringService.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FileMonitoringServiceDAL\FileMonitoringServiceDAL.csproj">
-      <Project>{19fc8e63-fbc6-46ec-8008-dd370920692f}</Project>
-      <Name>FileMonitoringServiceDAL</Name>
-    </ProjectReference>
+    <Compile Include="RightDown.cs" />
+    <Compile Include="SystemLog.cs" />
+    <Compile Include="TaskAssignConfig.cs" />
+    <Compile Include="TaskAssignFailLog.cs" />
+    <Compile Include="TransactionDetails.cs" />
+    <Compile Include="WebApi\Leave.cs" />
+    <Compile Include="WebApi\Schedule.cs" />
+    <Compile Include="Weight.cs" />
+    <Compile Include="WeightsConfig.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
