@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileMonitoringService", "FileMonitoringService\FileMonitoringService.csproj", "{60E367C3-1178-4E93-B989-346D11293DE1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileMonitoringServiceDAL", "FileMonitoringServiceDAL\FileMonitoringServiceDAL.csproj", "{19FC8E63-FBC6-46EC-8008-DD370920692F}"
@@ -10,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileMonitoringService.Model", "FileMonitoringService.Model\FileMonitoringService.Model.csproj", "{9E199B55-24E0-46A0-B9C4-CF8B7EDC2C44}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileMonitoringService.CommonHelper", "FileMonitoringService.CommonHelper\FileMonitoringService.CommonHelper.csproj", "{FBB280FD-1A98-41C2-A1D4-905C8FDF789C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBHelper", "DBHelper\DBHelper.csproj", "{67A9324A-4095-46F1-92F5-D1615FEBFA6E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +41,10 @@ Global
 		{FBB280FD-1A98-41C2-A1D4-905C8FDF789C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FBB280FD-1A98-41C2-A1D4-905C8FDF789C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FBB280FD-1A98-41C2-A1D4-905C8FDF789C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67A9324A-4095-46F1-92F5-D1615FEBFA6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67A9324A-4095-46F1-92F5-D1615FEBFA6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67A9324A-4095-46F1-92F5-D1615FEBFA6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67A9324A-4095-46F1-92F5-D1615FEBFA6E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

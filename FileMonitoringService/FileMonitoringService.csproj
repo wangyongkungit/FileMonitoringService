@@ -85,13 +85,17 @@
     <Content Include="HTMLPage1.html" />
     <Content Include="Lib\MySql.Data.dll" />
     <Content Include="Lib\TopSdk.dll" />
-    <Content Include="XMLFile1.xml" />
-    <Content Include="XMLFile2.xml" />
-    <Content Include="XMLFile3.xml">
+    <Content Include="Sample\XMLFile1.xml" />
+    <Content Include="Sample\XMLFile2.xml" />
+    <Content Include="Sample\XMLFile3.xml">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DBHelper\DBHelper.csproj">
+      <Project>{67a9324a-4095-46f1-92f5-d1615febfa6e}</Project>
+      <Name>DBHelper</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FileMonitoringService.CommonHelper\FileMonitoringService.CommonHelper.csproj">
       <Project>{fbb280fd-1a98-41c2-a1d4-905c8fdf789c}</Project>
       <Name>FileMonitoringService.CommonHelper</Name>
@@ -105,6 +109,7 @@
       <Name>FileMonitoringServiceBLL</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

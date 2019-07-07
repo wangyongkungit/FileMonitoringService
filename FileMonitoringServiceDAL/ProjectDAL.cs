@@ -48,7 +48,7 @@ namespace FileMonitoringDAL
 
         public DataTable GetProjectNoAllot(string where)
         {
-            string sql = @"";
+            //string sql = @"";
             return null;
         }
 

@@ -19,6 +19,7 @@ using FileMonitoringService.CommonHelper;
 using System.Xml;
 using FileMonitoringService.Model.WebApi;
 using Newtonsoft.Json.Linq;
+using DBHelper;
 
 namespace FileMonitoring
 {
@@ -33,6 +34,7 @@ namespace FileMonitoring
         System.Timers.Timer timer;
         System.Timers.Timer timer2;
         System.Timers.Timer timer3;
+        System.Timers.Timer timer4;
         TaskRemindingBLL trBll = new TaskRemindingBLL();
         TaskAssignConfigBLL tacBll = new TaskAssignConfigBLL();
         TaskAssignConfigDetailsBLL tacdBll = new TaskAssignConfigDetailsBLL();
@@ -67,6 +69,12 @@ namespace FileMonitoring
             timer3.Interval = interval3;
             timer3.Elapsed += timerTaskAutoAssign_Elapsed;
             timer3.Enabled = Convert.ToString(ConfigurationManager.AppSettings["enableAutoAllotment"]) == "1";//根据配置决定是否启用
+
+            timer4 = new System.Timers.Timer();
+            int interval4 = Convert.ToInt32(ConfigurationManager.AppSettings["interval4"]) * 1000;
+            timer4.Interval = interval4;
+            timer4.Elapsed += timerCountProgressTask_Elapsed;
+            timer4.Enabled = true;
         }
         #endregion
 
@@ -110,6 +118,12 @@ namespace FileMonitoring
         private void timerTaskAutoAssign_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
             TaskAutoAssign();
+            SetWorkingSet(750000);
+        }
+
+        private void timerCountProgressTask_Elapsed(object sneder, System.Timers.ElapsedEventArgs e)
+        {
+            CountTaskInProgress();
             SetWorkingSet(750000);
         }
         #endregion
@@ -507,8 +521,8 @@ namespace FileMonitoring
                                                     }
                                                     string fileCatWhere = " PROJECTID = '" + projectID + "' AND FOLDERNAME = '" + qstItem + "'";
                                                     FileCategory fileCategory = new FileCategoryBLL().GetModelList(fileCatWhere, string.Empty).FirstOrDefault();
-                                                    string createUser = fileCategory.CREATEUSER;
-                                                    string taskType = fileCategory.CATEGORY == "5" ? "4" : "5";
+                                                    string createUser = fileCategory?.CREATEUSER;
+                                                    string taskType = fileCategory?.CATEGORY == "5" ? "4" : "5";
                                                     string toUserId = string.Empty;
                                                     string toUserType = string.Empty;
                                                     // 如果创建目录的人跟项目录入人（即客服）是同一人，说明是是客服创建的。因此，该提醒需发送给工程师（即项目完成者）。
@@ -1631,6 +1645,15 @@ namespace FileMonitoring
         }
         #endregion
         #endregion
+
+        private void CountTaskInProgress()
+        {
+            if (DateTime.Now.Hour > 7)
+            {
+                MySqlHelper.ExecuteStoredProcedureNonQuery("GetTaskInProgressAmount");
+                LogHelper.WriteLine("GetTaskInProgressAmount End at hour " + DateTime.Now.Hour);
+            }
+        }
 
         #region 任务自动分配（已废弃）
         /// <summary>
